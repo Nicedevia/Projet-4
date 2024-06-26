@@ -2,7 +2,7 @@
 read me
 Mehdi ok
 Briac ok
-🐦 ok
+🐦 ok , mais deux c'est mieux
 
  python -m venv .venv                                                                                                         
  .venv\Scripts\Activate.ps1    
