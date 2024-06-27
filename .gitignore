@@ -1,4 +1,8 @@
 .vscode
 .venv
 .code
+<<<<<<< HEAD
+__pycache__\
+=======
 __pycache__/
+>>>>>>> 5f79eff047cb42f0ddc7ba1cf6fbad7581c450ad
