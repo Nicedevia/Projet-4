@@ -1,20 +1,18 @@
-from fastapi import FastApi
+import fastapi 
 from pydantic import BaseModel
 from typing import Union
 
-
-app = FastApi()
+app = fastapi.FastAPI()
 
 class User(BaseModel):
     id: int
     email: str
-    password: str
+    password: str  
 
 @app.get("/items/{user}")
 def read_item(user: int, q: Union[str, None] = None):
-    return {"user": user, "id":5,"email": "sam@gamil.com", "password":"password125Test"}
+    return {"user": user, "id": 5, "email": "sam@gmail.com"}
 
 @app.put("/items/{user}")
-def read_item(user: int, q: Union[str, None] = None):
-    return {"user": user, "id":5,"email": "sam@gamil.com", "password":"password125Test"}
-
+def update_item(user: int, q: Union[str, None] = None):
+    return {"message": "User updated successfully"}
