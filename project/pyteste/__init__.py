@@ -17,4 +17,6 @@ Debugging et Tracing
 Pour activer le mode de traçage qui permet de voir les appels de fonctions :
 pytest -v --tb=short
 
+pour la gloire 
+
 """
