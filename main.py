@@ -36,7 +36,6 @@ def update_item(id_user: int, user: User):
             "id_user": id_user
             }
 
-#__
 
 @app.get("/portefolio/{id_portefolio}")
 def read_item(id_portefolio: int, q: Union[str, None] = None):
