@@ -97,3 +97,19 @@ def delete_portefolio(id_portefolio: int):
             return {"message": "Portefolio deleted"}
     logger.error(f"Portefolio not found: {id_portefolio}")
     raise HTTPException(status_code=404, detail="Portefolio not found")
+
+# Usable by frontend routes
+
+@app.get("/get-from-api")
+def streamlite():
+    """Get from API
+
+    This method is a sort of template of an endpoint used by the streamlit frontend.
+
+    Nothing changes from the other routes, but the json sent will be used, thus the keys must be consistant.
+
+    Here, the \"response\" key is used, whatever is for text, list, or dict.
+
+    """
+
+    return {"response": "this is a message from api"}
