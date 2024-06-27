@@ -1,7 +1,7 @@
 import pytest
 import logging
 from fastapi.testclient import TestClient
-from maine.main import app, users_db, portefolio_db
+from main import app, users_db, portefolio_db
 
 client = TestClient(app)
 
