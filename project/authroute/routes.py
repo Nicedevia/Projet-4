@@ -1,10 +1,11 @@
 import logging
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Body
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from datetime import date
 from database.connextion import get_db
 from project.models import models
+from typing import Any
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
@@ -59,3 +60,29 @@ def read_portfolios(skip: int = 0, limit: int = 10, db: Session = Depends(get_db
     portfolios = db.query(models.Portfolio).offset(skip).limit(limit).all()
     logger.info("Portfolios retrieved")
     return portfolios
+
+@router.get("/get-from-api")
+def get_from_api():
+    """Get from API
+
+    This method is a sort of template of an endpoint used by the streamlit frontend.
+
+    Nothing changes from the other routes, but the json sent will be used, thus the keys must be consistant.
+
+    Here, the \"response\" key is used, whatever is for text, list, or dict.
+
+    """
+
+    return {"response": "this is a message from api"}
+
+@router.post("/send-to-api")
+def send_to_api(payload: Any = Body(None)):
+    """Send to API
+
+    Same as above
+
+    """
+
+    print(payload)
+
+    return {"response": f"api got the message, and the message was: [{payload}]"}
